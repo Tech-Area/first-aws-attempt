@@ -5,6 +5,8 @@ import com.techarea.firstawsattempt.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PersonService {
 
@@ -15,9 +17,8 @@ public class PersonService {
         this.personRepository = personRepository;
     }
 
-    public Person getById(Long id) {
-        var x = personRepository.findById(id);
-        return x.orElse(null);
+    public List<Person> getAll() {
+        return personRepository.findAll();
     }
 
     public Person save(Person person) {

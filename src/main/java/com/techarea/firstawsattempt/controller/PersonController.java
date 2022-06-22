@@ -5,6 +5,8 @@ import com.techarea.firstawsattempt.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/")
 public class PersonController {
@@ -17,12 +19,13 @@ public class PersonController {
     }
 
     @GetMapping
-    public Person getById(@RequestParam(value = "id") Long id) {
-        return personService.getById(id);
+    public List<Person> getAll() {
+        return personService.getAll();
     }
 
     @PostMapping
     public Person save(@RequestBody Person person) {
         return personService.save(person);
     }
+
 }
